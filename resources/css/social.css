@@ -1,0 +1,140 @@
+#social {
+    font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+    color: #000;
+    padding: 5px;
+    background: #FFF;
+}
+
+#social a {
+    color: #005D8C;
+}
+
+#social .loading {
+    background:url("../img/loader-small.gif") no-repeat center center;
+    height: 300px;
+}
+
+.metro {
+    border-top: 5px solid #005D8C;
+    /*background-color: rgba(50, 50, 50, 0.7);*/
+    /*background: #005D8C;*/
+    padding: 5px;
+    font-size: 12px;
+}
+
+#social .owner {
+    margin-bottom: 10px;
+    float: left;
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#social .postdate {
+    color: #898989;
+    font-size: 12px;
+    margin-bottom: 10px; float:right; text-align: right; display: block;
+}
+
+#social .message {
+    margin-bottom: 20px;
+}
+
+#social .mediaPost {}
+
+#social .mediaPost img {
+    display: inline-block; float: left; padding-right: 10px;
+}
+
+#social .mediaBox {
+    line-height: 14px;
+}
+
+#social .mediaBox .title {
+    font-weight: bold; font-size: 11px;
+}
+
+#social .mediaBox .subtitle {
+    font-weight: normal; font-size: 11px;
+}
+
+#social .mediaBox .message {
+    font-size: 11px;
+    margin-bottom: 0;
+}
+
+
+#social .commentBox {
+    margin-top: 10px; display: block; width: 98%; background: #EDEFF4; padding: 1%; font-size: 12px; line-height: 15px;
+}
+
+#social .commentBox .photo {
+    float:left; width: 10%; display: block;
+}
+
+#social .commentBox .photo a {
+    border: 0;
+}
+
+#social .commentBox .comment {
+    float:right; display: block; width:90%;
+}
+
+#social .commentBox .user {
+    font-weight: bold;
+}
+
+#social .commentBox .user a {
+    /*color: #000;*/
+}
+
+#social .commentBox .date {
+    font-size: 11px;
+    text-align: right;
+    width:100%;
+    display:block;
+}
+
+
+/* ----------------- RESPONSIVE CSS -----------------  */
+
+/*Smartphone portrait*/
+@media ( max-width : 767px) {
+    #social {
+        margin: 1%;
+    }
+
+    #social .span4 {
+        width: 98%;
+    }
+
+
+    #social .span4 {
+        margin-bottom: 15px;
+    }
+
+    #social .commentBox {
+        padding: 3px;
+        margin: 12px;
+        width: auto;
+
+    }
+
+    #social .commentBox .photo {
+        margin-right: 5px; width:auto;
+    }
+
+    #social .commentBox .comment {
+        width: auto; float:left; text-align: left;
+    }
+
+    #social .commentBox .date {
+        text-align: left;
+        width: auto;
+    }
+
+}
+
+@media ( max-width : 767px) {
+}

@@ -1,0 +1,84 @@
+<!--<form id="pageForm" action="/page" autocomplete="on" method="post" enctype="multipart/form-data" accept-charset="UTF-8">-->
+<form id="pageForm" class="simple-form form-horizontal" novalidate ng-show="pages.length == 0">
+	<h2 id="pageFormH1">Crie sua página</h2>
+
+
+	<input class="form-control" type="hidden" id="id" name="pageForm.id" ng-model="pageForm.id">
+
+    <div class="form-group" id="urlDiv">
+
+            <label for="url" class="col-lg-2 control-label">Endereço da página: </label>
+        <div class="col-lg-10">
+            <input class="form-control" type="text" id="url" name="url" placeholder="divulga.pandox.com.br/" ng-model="pageForm.url" >
+            <p class="help-block"></p>
+        </div>
+    </div>
+
+    <div class="form-group" id="nameDiv">
+
+            <label for="name" class="col-lg-2 control-label">Título da página: </label>
+        <div class="col-lg-10">
+            <input class="form-control" type="text" id="name" name="name" ng-model="pageForm.name" >
+            <span id="nameHelp" class="help-inline"></span>
+        </div>
+    </div>
+
+    <div class="form-group" id="descriptionDiv">
+
+            <label for="description" class="col-lg-2 control-label">Descrição: </label>
+        <div class="col-lg-10">
+            <input class="form-control" type="text" id="description" name="description" ng-model="pageForm.description" >
+            <span id="descriptionHelp" class="help-inline"></span>
+        </div>
+    </div>
+
+
+<!--##    <div class="form-group" id="mainColorDiv">-->
+<!--##        -->
+<!--##            <label for="mainColor" class="col-lg-2 control-label">Estilo</label>-->
+<!--##        <div class="col-lg-10">-->
+<!--##            <input class="form-control" type="text" id="mainColor" name="mainColor" placeholder="Red" ng-model="pageForm.mainColor" >-->
+<!--##            <span id="mainColorHelp" class="help-inline"></span>-->
+<!--##        </div>-->
+<!--##    </div>-->
+
+
+    <div class="form-group" id="emailDiv">
+
+            <label for="email" class="col-lg-2 control-label">E-mail: </label>
+        <div class="col-lg-10">
+            <input class="form-control" type="text" id="email" name="email" placeholder="email@email.com.br" ng-model="pageForm.email" >
+            <span id="emailHelp" class="help-inline"></span>
+        </div>
+    </div>
+
+
+<!--##    <div class="form-group" id="imgDiv">-->
+<!--##        -->
+<!--##            <label for="img" class="col-lg-2 control-label">Plano de fundo: </label>-->
+<!--##        <div class="col-lg-10">-->
+<!--##            <input class="form-control" type="file" id="img" name="file" value="$pageForm.file"  />-->
+<!--##            <span id="imgHelp" class="help-inline"></span>-->
+<!--##        </div>-->
+<!--##    </div>-->
+
+
+    <div class="form-group" id="phoneDiv">
+
+            <label for="ddd" class="col-lg-2 control-label">Telefone: </label>
+        <div class="col-lg-10">
+            <input class="form-control" type="hidden" name="phonesForm[0].ddi" value="55">
+            <input class="form-control" type="text" id="ddd" name="phonesForm[0].ddd" size="3" maxlength="2" class="span2" placeholder="ddd">
+            <input class="form-control" type="tel" name="phonesForm[0].phone" id="phone"  class="span10">
+            <span id="phoneHelp" class="help-inline"></span>
+        </div>
+    </div>
+
+    </div>
+    <div class="form-group ">
+        <div class="col-offset-2 col-lg-10">
+            <button id="btnPage" class="btn btn-large btn-primary" type="button" ng-click="persist(pageForm)">Salvar</button>
+        </div>
+    </div>
+
+</form>

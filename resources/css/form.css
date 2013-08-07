@@ -1,0 +1,103 @@
+.help-block {
+    display: none;
+}
+/*input[type="text"], input[type="tel"] {*/
+	/*font-family: 'Lato', Helvetica;*/
+    /*box-shadow: none;*/
+    /*border-radius: 0;*/
+    /*border: 0;*/
+    /*border-bottom: 1px solid #d0dde9;*/
+    /*margin: 0;*/
+    /*padding:0;*/
+    /*width: 100%;*/
+
+/*}*/
+
+/*label {*/
+    /*margin: 0;*/
+    /*padding:0;*/
+    /*text-align: right;*/
+/*}*/
+
+/*#pageForm .row-fluid {*/
+    /*margin-bottom: 20px;*/
+/*}*/
+
+/*#pageForm .span3 {*/
+    /*min-height: 0;*/
+/*}*/
+
+/*.error{*/
+    /*color: #b94a48;*/
+/*}*/
+
+/*.error .help-inline {*/
+    /*color: #b94a48;*/
+/*}*/
+/*.error input {*/
+    /*color: #b94a48;*/
+    /*border-bottom: 1px solid #b94a48;*/
+/*}*/
+
+/*.control-label {*/
+    /*font-weight: bold;*/
+/*}*/
+
+/*.control-group.error input,*/
+/*.control-group.error select,*/
+/*.control-group.error textarea {*/
+    /*-webkit-box-shadow: none;*/
+    /*-moz-box-shadow: none;*/
+    /*box-shadow: none;*/
+/*}*/
+
+/*.control-group.error input:focus,*/
+/*.control-group.error select:focus,*/
+/*.control-group.error textarea:focus {*/
+    /*-webkit-box-shadow: none;*/
+    /*-moz-box-shadow: none;*/
+    /*box-shadow: none;*/
+/*}*/
+
+/*.control-group.error input:focus, .control-group.error select:focus, .control-group.error textarea:focus {*/
+    /*box-shadow: none;*/
+    /*-webkit-box-shadow: none;*/
+    /*-moz-box-shadow: none;*/
+/*}*/
+
+/*input[type="text"]:focus {*/
+    /*border-color: #5d6a80;*/
+    /*box-shadow: none;*/
+/*}*/
+
+/*input[type="text"]:active {*/
+    /*border-color: #5d6a80;*/
+    /*box-shadow: none;*/
+/*}*/
+
+
+/* ----------------- RESPONSIVE CSS -----------------  */
+
+/*Smartphone portrait*/
+/*@media ( max-width : 767px) {*/
+    /*input[type="text"], input[type="tel"] {*/
+        /*margin-top: 5px;*/
+
+    /*}*/
+
+    /*.help-inline {*/
+        /*margin-bottom: 20px;*/
+        /*display: block;*/
+        /*width: 100%;*/
+        /*text-align: center;*/
+
+    /*}*/
+    /*#pageForm .row-fluid {*/
+        /*margin-bottom: 0;*/
+    /*}*/
+
+
+    /*label {*/
+        /*text-align: left;*/
+    /*}*/
+/*}*/

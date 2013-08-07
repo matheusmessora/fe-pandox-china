@@ -1,0 +1,75 @@
+.pageBackground {
+    background: repeat left top;
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*margin-top: -71px;*/
+    z-index: -2;
+}
+
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    margin: 50px 0;
+    text-align: center;
+    background: none;
+}
+
+.jumbotron h1 {
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
+    color: #FFFFFF;
+    font-size: 100px;
+    line-height: 1;
+}
+
+.jumbotron .lead {
+    font-size: 24px;
+    line-height: 1.25;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+
+#welcomeProfile {
+    margin-right: 5px;
+}
+
+.bar {
+    /*border-top: #3b5998 4px solid;*/
+    border-top: #51a3bb 4px solid;
+}
+
+.pageBox {
+    background-color: rgba(45, 45, 45, 0.7);
+    color: #FFFFFF;
+    height: auto;
+}
+
+.pageContact {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.pageContact .well {
+    background-color: rgba(45, 45, 45, 0.5);
+}
+
+.pageContact h2 {
+    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.35);
+    color: #FFFFFF;
+    line-height: 1;
+    font-weight: bold;
+
+}
+
+#social {
+    font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+    color: #000;
+    padding: 5px;
+    background: #FFF;
+}
