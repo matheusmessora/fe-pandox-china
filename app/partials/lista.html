@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <h2>Buscar Lojas</h2>
+        <p>Por nome: <input ng-model="query"></p>
+        <p>Por categoria: <input ng-model="query"></p>
+
+    </div>
+
+    <div class="row" id="metro-ui">
+
+        <h1>Lojas da Liberdade</h1>
+        <div class="col-6 col-lg-2 metroBox" ng-repeat="page in pages| filter:query">
+            <h5><a href="#/loja/{{ page.url }}">{{ page.name }}</a></h5>
+            <p><a href="#/loja/{{ page.url }}">{{ page.description }}</a></p>
+        </div>
+
+    </div>
+</div>

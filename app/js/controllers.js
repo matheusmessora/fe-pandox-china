@@ -1,19 +1,26 @@
 'use strict';
 
 /* Controllers */
-function IndexCtrl($scope, $http, $route, $routeParams) {
+function IndexCtrl($scope, $http, $routeParams) {
+    PANDOX.UI.highligthHeader('menuHome');
     $http.get('/api/page').success(function(data) {
         $scope.pages = data;
     });
 
     $scope.orderProp = "name";
-
     $scope.hello = "Hello World!";
-
     console.log($routeParams);
 }
 
-function UserPageCtrl($rootScope, $scope, $http, $route, $routeParams, $compile, $location) {
+function ListaCtrl($scope, $http) {
+    PANDOX.UI.highligthHeader('menuLista');
+
+    $http.get('/api/page').success(function(data) {
+        $scope.pages = data;
+    });
+}
+
+function UserPageCtrl($rootScope, $scope, $http, $routeParams, $location) {
     var url = '/api/page?url=' + $location.path().substring(1);
     $http.get(url).success(function(data) {
         $scope.page = data[0];
@@ -21,10 +28,12 @@ function UserPageCtrl($rootScope, $scope, $http, $route, $routeParams, $compile,
 
         $rootScope.bg = 'background: rgb(172, 222, 214) url("http://cdn.pandox.com.br/img/user-bg/' + data[0].img + '");';
     });
-
 }
 
 function AdminCtrl($scope, $http, $cookies, $cookieStore) {
+    PANDOX.UI.highligthHeader('menuHome');
+    PANDOX.UI.highligthAdminMenu('pageli');
+
     var url = '/api/page';
     if($cookieStore.get('PID')){
         url += ('?user='+$cookieStore.get('PID'));
@@ -56,7 +65,13 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore) {
     $scope.hello = $cookies.userName;
 
     $scope.edit = function(page) {
+        var phones = new Array(1);
+        phones[0] = { };
         $scope.pageForm = JSON.parse(JSON.stringify(page));
+        if($scope.pageForm.phones){
+            phones = $scope.pageForm.phones;
+        }
+        $scope.pageForm.phonesForm = phones;
         $("#pageForm").show();
         $("#tablePage").hide();
         $("#pageFormH1").html("Editar página")
@@ -90,6 +105,7 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore) {
     };
 
     $scope.persist = function(page){
+        console.log(page);
         $http.post('/api/page/', page, PANDOX.SYSTEM.httpConfig())
             .success(function(data, status) {
                 console.log("INSERT:" + status, data);
@@ -103,7 +119,48 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore) {
     };
 }
 
+function SenhaCtrl($scope, $http, $location, $cookies, $cookieStore) {
+    PANDOX.UI.highligthAdminMenu('pwdli');
+
+    $scope.clearField = function(fieldId){
+        $("#" + fieldId + "Div").removeClass("has-error");
+        $("#" + fieldId).next().hide();
+        $("#" + fieldId).next().html('');
+    };
+
+    $scope.changePwd = function(user){
+        PANDOX.UI.hideMessage();
+        if(PANDOX.SYSTEM.isValidFormChangePassword()){
+
+            $http.post('/api/user/passwd', user, PANDOX.SYSTEM.httpConfig())
+                .success(function(data, status) {
+                    $location.path('/admin');
+                    PANDOX.UI.showMessage("Senha alterada com sucesso.", 'success');
+                })
+                .error(function(data, status) {
+                    if(status == 401){ // Unathorized
+                        PANDOX.UI.showMessage("Dados não conferem.", 'danger');
+                    }else {
+                        PANDOX.UI.showMessage(data, 'danger');
+                    }
+                });
+        }
+    };
+}
+
+function LogoutCtrl($scope, $http, $location, $cookies, $cookieStore) {
+    PANDOX.UI.logout();
+
+    $cookieStore.remove('PID');
+    $cookieStore.remove('userName');
+    $location.path('/');
+}
+
 function LoginCtrl($scope, $http, $location, $cookies, $cookieStore) {
+    PANDOX.UI.hideMessage();
+    PANDOX.UI.highligthHeader('menuLogin');
+
+
     $scope.login = function(user) {
         PANDOX.UI.hideMessage();
         if(isValid(user)){
@@ -113,6 +170,7 @@ function LoginCtrl($scope, $http, $location, $cookies, $cookieStore) {
                     $cookieStore.put('PID', data.id);
                     $cookieStore.put('userName', data.name);
                     $location.path('/admin');
+                    PANDOX.UI.showWelcome(data.name);
                 })
                 .error(function(data, status) {
                     if(status == 401){ // Unathorized
@@ -157,11 +215,11 @@ function LoginCtrl($scope, $http, $location, $cookies, $cookieStore) {
     };
 }
 
-function UserCtrl($scope, $http, $location, $cookies) {
+function UserCtrl($scope, $http, $location, $cookies, $cookieStore) {
     $scope.persist = function(user) {
         PANDOX.UI.hideMessage();
         if(isValid(user)){
-            $http.post('/api/user', user)
+            $http.post('/api/user', user, PANDOX.SYSTEM.httpConfig())
                 .success(function(data, status) {
                     console.log("SUCESSO:" + status, data);
                     $cookieStore.put('PID', data.id);

@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="well">
+        <h1 id="myAdmin">Configurações da Conta</h1>
+        <hr />
+
+        <ng-include src="'/app/partials/admin/menu.html'"></ng-include>
+
+        <!--#if($pages.size() == 0)-->
+        <!--<div class="alert alert-success">-->
+            <!--Para começar, crie sua primeira página para gerenciar. <br />-->
+        <!--</div>-->
+        <!--#end-->
+
+        <div class="col-lg-12">
+            Altere sua senha informando no campo abaixo:
+            <br /><br />
+        </div>
+
+        <form id="passwordForm" class="simple-form form-horizontal" novalidate>
+        <div class="form-group" id="oldPasswordDiv">
+                <label for="oldPassword" class="col-lg-2 control-label">Senha atual: </label>
+                <div class="col-lg-10">
+                    <input class="form-control" type="text" id="oldPassword" placeholder="Sua senha antiga" ng-model="user.oldPassword" ng-focus="clearField('oldPassword')" >
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="form-group" id="passwordDiv">
+                <label for="password" class="col-lg-2 control-label">Nova senha: </label>
+                <div class="col-lg-10">
+                    <input class="form-control" type="text" id="password" ng-model="user.password" ng-focus="clearField('password')">
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="form-group" id="passwordConfirmDiv">
+                <label for="passwordConfirm" class="col-lg-2 control-label">Confirmação de senha: </label>
+                <div class="col-lg-10">
+                    <input class="form-control" type="text" id="passwordConfirm" ng-model="user.passwordConfirm" ng-focus="clearField('passwordConfirm')">
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="form-group ">
+                <div class="col-offset-2 col-lg-10">
+                    <button id="btnPage" class="btn btn-large btn-primary" type="button" ng-click="changePwd(user)">Salvar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+#metro-ui {}
+
+#metro-ui .col-lg-2 {
+    padding: 0;
+    margin: 0;
+}
+
+.metroBox {
+    background: #1c1c1c;
+    border: 1px solid lightgray;
+    color: #FFFFFF;
+    height: 170px;
+    padding: 5px 15px;
+}
+
+#metro-ui h5 {
+    background: #2c2c2c;
+    padding: 7px 15px;
+    margin: 0;
+    width: 100%;
+    font-style: italic;
+}
+
+#metro-ui p {
+    padding: 5px 15px;
+    font-size: 12px;
+}
+
+#metro-ui a {
+    color: #FFFFFF;
+}
+
+#metro-ui h1 {
+}

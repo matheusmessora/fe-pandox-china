@@ -3,6 +3,16 @@ body {
     background: #f6f8f8;
 }
 
+.navbar-inverse {
+    border-bottom: 2px solid gold;
+}
+
+.navbar-inverse .active a {
+    color: gold !important;
+}
+
+
+
 /* Main marketing message and sign up button */
 .jumbotron {
     margin: 0;

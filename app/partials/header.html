@@ -9,11 +9,15 @@
         <a class="navbar-brand" href="/">Pandox Divulga!</a>
         <div class="nav-collapse collapse navbar-responsive-collapse">
 
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#/login">Acessar conta</a></li>
+            <ul class="nav navbar-nav" id="menul">
+                <li class="active" id="menuHome"><a href="#">Home</a></li>
+                <li id="menuLista"><a href="#/busca">Busca</a></li>
+                <li id="menuLogin"><a href="#/login">Acessar conta</a></li>
             </ul>
-            <p id="navBarUser" class="navbar-text pull-right" style="display: none;">Bem vindo, Matheus Messora</p>
+            <!--<p id="navBarUser" class="navbar-link pull-right" style="display: block;">Bem vindo, Matheus Messora <span class="glyphicon glyphicon-cog" style="font-size: 26px;"></span> </p>-->
+            <p id="navBarUser" class="navbar-link pull-right" style="display: none;"><a href="#/admin">Bem vindo, Matheus Messora</a> </p>
+            <p id="navBarSettings" class="navbar-link pull-right" style="display: none;"><a href="#/admin"><span class="glyphicon glyphicon-cog" style="font-size: 26px;"></span> </a></p>
+            <p id="navBarLogout" class="navbar-link pull-right" style="display: none;"><a href="#/logout"><span class="glyphicon glyphicon-off" style="font-size: 26px;"></span> </a></p>
         </div><!-- /.nav-collapse -->
     </div>
 </div>
