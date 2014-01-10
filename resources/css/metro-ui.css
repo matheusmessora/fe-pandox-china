@@ -1,33 +1,45 @@
 #metro-ui {}
 
-#metro-ui .col-lg-2 {
+#metro-ui .col-lg-3 {
     padding: 0;
     margin: 0;
 }
 
 .metroBox {
-    background: #1c1c1c;
-    border: 1px solid lightgray;
+    background: #1c1c1c url("https://d1vqadlphs7x9h.cloudfront.net/restaurante_kaa_13300142669332815_m.jpg");
+    border: 5px solid white;
     color: #FFFFFF;
-    height: 170px;
+    height: 230px;
     padding: 5px 15px;
 }
 
 #metro-ui h5 {
-    background: #2c2c2c;
     padding: 7px 15px;
     margin: 0;
     width: 100%;
-    font-style: italic;
+    font-size: 16px;
+
+    background: rgba(0,0,0,0.6);
+    -ms-filter: "alpha(opacity=60)";
 }
 
 #metro-ui p {
     padding: 5px 15px;
-    font-size: 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: gold !important;
+
+
+    background: rgba(0,0,0,0.6);
+    -ms-filter: "alpha(opacity=60)";
 }
 
 #metro-ui a {
     color: #FFFFFF;
+}
+
+#metro-ui p > a {
+    color: gold;
 }
 
 #metro-ui h1 {

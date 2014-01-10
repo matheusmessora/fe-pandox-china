@@ -30,7 +30,7 @@ function UserPageCtrl($rootScope, $scope, $http, $routeParams, $location) {
     });
 }
 
-function AdminCtrl($scope, $http, $cookies, $cookieStore) {
+function AdminCtrl($scope, $http, $cookies, $cookieStore, $templateCache) {
     PANDOX.UI.highligthHeader('menuHome');
     PANDOX.UI.highligthAdminMenu('pageli');
 
@@ -39,7 +39,14 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore) {
         url += ('?user='+$cookieStore.get('PID'));
     }
     $http.get(url).success(function(data) {
+        console.log("pages=", data);
         $scope.pages = data;
+    });
+
+    // SERVICE FOR CATEGORY
+    var url = '/api/category';
+    $http.get(url).success(function(data) {
+        $scope.categoryList = data;
     });
 
     $scope.reset = function(){
@@ -68,6 +75,7 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore) {
         var phones = new Array(1);
         phones[0] = { };
         $scope.pageForm = JSON.parse(JSON.stringify(page));
+        console.log("pageForm=", JSON.parse(JSON.stringify(page)));
         if($scope.pageForm.phones){
             phones = $scope.pageForm.phones;
         }

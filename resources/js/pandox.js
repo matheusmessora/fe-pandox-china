@@ -219,6 +219,7 @@ PANDOX.SYSTEM = function() {
     return {
         init: init,
         httpConfig: httpConfig,
+        //httpConfig2: httpConfig2,
         isValidFormChangePassword: isValidFormChangePassword,
         deletePage: deletePage
     };

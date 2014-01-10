@@ -9,9 +9,14 @@
     <div class="row" id="metro-ui">
 
         <h1>Lojas da Liberdade</h1>
-        <div class="col-6 col-lg-2 metroBox" ng-repeat="page in pages| filter:query">
+        <div class="col-6 col-lg-3 metroBox" ng-repeat="page in pages| filter:query">
             <h5><a href="#/loja/{{ page.url }}">{{ page.name }}</a></h5>
-            <p><a href="#/loja/{{ page.url }}">{{ page.description }}</a></p>
+            <p><a href="#">{{ page.category.name }}</a></p>
+        </div>
+
+        <div class="col-6 col-lg-3 metroBox">
+            <h5><a href="#">Hotel Urbano</a></h5>
+            <p><a href="#">Hotel</a></p>
         </div>
 
     </div>
