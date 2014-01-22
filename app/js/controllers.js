@@ -21,12 +21,13 @@ function ListaCtrl($scope, $http) {
 }
 
 function UserPageCtrl($rootScope, $scope, $http, $routeParams, $location) {
-    var url = '/api/page?url=' + $location.path().substring(1);
+
+    var url = '/api/page?url=' + $location.path().substring(6);
     $http.get(url).success(function(data) {
         $scope.page = data[0];
         console.log($scope.page);
 
-        $rootScope.bg = 'background: rgb(172, 222, 214) url("http://cdn.pandox.com.br/img/user-bg/' + data[0].img + '");';
+        //$rootScope.bg = 'background: rgb(172, 222, 214) url("http://cdn.pandox.com.br/img/user-bg/' + data[0].img + '");';
     });
 }
 
@@ -48,6 +49,16 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore, $templateCache) {
     $http.get(url).success(function(data) {
         $scope.categoryList = data;
     });
+
+    // SERVICE FOR QUALITY
+    var url = '/api/quality';
+    $http.get(url).success(function(data) {
+        $scope.qualityList = data;
+    });
+
+    $scope.toggle = function (quality) {
+        quality.selected = !quality.selected;
+    };
 
     $scope.reset = function(){
         var url = '/api/page';
@@ -76,10 +87,10 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore, $templateCache) {
         phones[0] = { };
         $scope.pageForm = JSON.parse(JSON.stringify(page));
         console.log("pageForm=", JSON.parse(JSON.stringify(page)));
-        if($scope.pageForm.phones){
-            phones = $scope.pageForm.phones;
-        }
-        $scope.pageForm.phonesForm = phones;
+//        if($scope.pageForm.phones){
+//            phones = $scope.pageForm.phones;
+//        }
+//        $scope.pageForm.phonesForm = phones;
         $("#pageForm").show();
         $("#tablePage").hide();
         $("#pageFormH1").html("Editar página")
@@ -114,16 +125,17 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore, $templateCache) {
 
     $scope.persist = function(page){
         console.log(page);
-        $http.post('/api/page/', page, PANDOX.SYSTEM.httpConfig())
-            .success(function(data, status) {
-                console.log("INSERT:" + status, data);
-                PANDOX.UI.showMessage('Pagina cadastrada com sucesso', 'success');
-                $scope.pages.removeItem(page);
-                $scope.pages.push(page);
-            })
-            .error(function(data, status) {
-                PANDOX.UI.showMessage(data, 'danger');
-            });
+        console.log()
+//        $http.post('/api/page/', page, PANDOX.SYSTEM.httpConfig())
+//            .success(function(data, status) {
+//                console.log("INSERT:" + status, data);
+//                PANDOX.UI.showMessage('Pagina cadastrada com sucesso', 'success');
+//                $scope.pages.removeItem(page);
+//                $scope.pages.push(page);
+//            })
+//            .error(function(data, status) {
+//                PANDOX.UI.showMessage(data, 'danger');
+//            });
     };
 }
 

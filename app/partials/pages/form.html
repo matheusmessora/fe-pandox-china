@@ -1,4 +1,5 @@
-<form id="pageForm" enctype="multipart/form-data" accept-charset="UTF-8" class="simple-form form-horizontal"  novalidate ng-show="pages.length == 0">
+<form id="pageForm" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" class="simple-form form-horizontal"  novalidate ng-show="pages.length == 0">
+<!--<form id="pageForm" enctype="multipart/form-data" accept-charset="UTF-8" class="simple-form form-horizontal"  novalidate ng-show="pages.length == 0">-->
 <!--<form id="pageForm" class="simple-form form-horizontal" novalidate ng-show="pages.length == 0">-->
 	<h2 id="pageFormH1">Crie sua página</h2>
 
@@ -23,9 +24,9 @@
 
     <div class="form-group" id="descriptionDiv">
 
-            <label for="description" class="col-lg-2 control-label">Descrição: </label>
+            <label for="name" class="col-lg-2 control-label">Descrição: </label>
         <div class="col-lg-10">
-            <input class="form-control" type="text" id="description" name="description" ng-model="pageForm.description" >
+            <input class="form-control" type="text" id="name" name="name" ng-model="pageForm.name" >
             <span id="descriptionHelp" class="help-inline"></span>
         </div>
     </div>
@@ -36,7 +37,21 @@
             <select ng-model="pageForm.category.id" ng-options="c.id as c.name for c in categoryList" id="category">
                 <option value="">-- Escolha a categoria --</option>
             </select>
+            <pre>{{categoryList | json}}<pre>
             <span id="categoryHelp" class="help-inline"></span>
+        </div>
+    </div>
+
+    <div class="form-group" id="qualityDiv">
+        <label for="quality" class="col-lg-2 control-label">Caracteristicas: </label>
+        <div class="col-lg-10">
+            <ul id="quality">
+                <li ng-repeat="quality in qualityList" ng-class="{'selected':quality.selected}">
+                    <a href="" ng-click="toggle(quality)">{{ quality.description }}</a>
+                </li>
+            </ul>
+            <pre>{{qualityList | json}}<pre>
+            <span id="qualityHelp" class="help-inline"></span>
         </div>
     </div>
 
@@ -49,24 +64,24 @@
         </div>
     </div>
 
-    <div class="form-group" id="imgDiv">
-            <label for="img" class="col-lg-2 control-label">Background: </label>
-        <div class="col-lg-10">
-            <input class="form-control" type="file" id="img" name="img" ng-model="pageForm.file">
-            <span id="imgHelp" class="help-inline"></span>
-        </div>
-    </div>
+    <!--<div class="form-group" id="imgDiv">-->
+            <!--<label for="img" class="col-lg-2 control-label">Background: </label>-->
+        <!--<div class="col-lg-10">-->
+            <!--<input class="form-control" type="file" id="img" name="img" ng-model="pageForm.file">-->
+            <!--<span id="imgHelp" class="help-inline"></span>-->
+        <!--</div>-->
+    <!--</div>-->
 
 
-    <div class="form-group" id="phoneDiv">
+    <!--<div class="form-group" id="phoneDiv">-->
 
-            <label for="ddd" class="col-lg-2 control-label">Telefone: </label>
-        <div class="col-lg-10">
-            <input class="form-control" type="text" id="ddd" size="3" maxlength="2" class="span2" placeholder="ddd" ng-model="pageForm.phonesForm[0].ddd">
-            <input class="form-control" type="text" id="phone"  class="span10" ng-model="pageForm.phonesForm[0].phone">
-            <span id="phoneHelp" class="help-inline"></span>
-        </div>
-    </div>
+            <!--<label for="ddd" class="col-lg-2 control-label">Telefone: </label>-->
+        <!--<div class="col-lg-10">-->
+            <!--<input class="form-control" type="text" id="ddd" size="3" maxlength="2" class="span2" placeholder="ddd" ng-model="pageForm.phonesForm[0].ddd">-->
+            <!--<input class="form-control" type="text" id="phone"  class="span10" ng-model="pageForm.phonesForm[0].phone">-->
+            <!--<span id="phoneHelp" class="help-inline"></span>-->
+        <!--</div>-->
+    <!--</div>-->
 
     </div>
     <div class="form-group ">

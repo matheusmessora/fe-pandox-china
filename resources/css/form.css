@@ -1,6 +1,10 @@
 .help-block {
     display: none;
 }
+
+.selected {
+    background-color: yellow;
+}
 /*input[type="text"], input[type="tel"] {*/
 	/*font-family: 'Lato', Helvetica;*/
     /*box-shadow: none;*/

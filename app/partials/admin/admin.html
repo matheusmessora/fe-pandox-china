@@ -20,6 +20,7 @@
                 <th>Nome</th>
                 <th>Título</th>
                 <th>E-mail</th>
+                <th>Categoria</th>
                 <th></th>
                 </thead>
                 <tr ng-repeat="page in pages">
@@ -27,6 +28,7 @@
                     <td><a href="#/loja/{{ page.url }}">{{ page.url }}</a> </td>
                     <td>{{ page.name }}</td>
                     <td>{{ page.email }}</td>
+                    <td>{{ page.category.id }} - {{ page.category.name }}</td>
                     <td style="text-align: right">
                         <a class="btn btn-primary btn-warning btn-edit" ng-click="edit(page)">
                             <span class="glyphicon glyphicon-wrench"></span>

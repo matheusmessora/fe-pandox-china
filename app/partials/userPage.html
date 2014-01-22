@@ -1,42 +1,52 @@
 <div class="container">
 
-	<div class="pageBackground" style=''>
-	<div class="jumbotron">
-		<h1>{{ page.name }}</h1>
-		<h3>Facebook | Twitter</h3>
-	</div>
+    <div class="jumbotron">
+        <h1>{{ page.name }}</h1>
 
-	<div class="row-fluid" id="userPageBox" data-id="$page.socialUser.id">
-		<div class="span8 offset2" id="userPageBoxFeed" >
-
-            <div id="fb-root"></div>
-
-            <div class="row-fluid well" id="social">
-                Facebook WALL
-            </div>
-
-		</div>
-	</div>
-
-	<div class="row-fluid pageContact">
-		<div class="span2"></div>
-		<div class="span8">
-			<h2>Contato</h2>
-		</div>
-		<div class="span2"></div>
-	</div>
-
-	<div class="row-fluid pageContact">
-		<div class="span3"></div>
-		<div class="span6 well">
-            <span ng-repeat="phone in page.phones">
-				<h3>Telefone ({{ phone.ddd }}) {{ phone.phone }}</h3>
-            </span>
-                <h3>E-mail {{ page.email }}</h3>
-		</div>
-
-		<div class="span3"> </div>
-	</div>
-
+        <h3>{{ page.name }}</h3>
     </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <h2>Fotos</h2>
+        </div>
+
+        <div class="col-12">
+            <div class="metroBox" style="background-image: url('{{page.img}}')">
+                    aaa|BBB
+                </div>
+        </div>
+        <div class="col-lg-3 col-6" ng-repeat="image in page.imageList">
+            <img src="http://cdn.pandox.com.br/resources/img/user/{{ image.name }}" width="200" height="200">
+
+        </div>
+    </div>
+    <pre>{{page.imageList | json}}</pre>
+
+    <div class="row">
+        <div class="col-12">
+            <h2>Informações</h2>
+        </div>
+
+        <div class="col-lg-3 col-6" ng-repeat="quality in page.qualityList">
+            {{ quality.name }}
+        </div>
+    </div>
+    <pre>{{page.qualityList | json}}</pre>
+
+
+    <div class="row">
+        <div class="col-12">
+            <h2>Contato e Endereço</h2>
+        </div>
+
+        <div class="col-lg-6 col-6">
+            (11) 3030-6555
+        </div>
+        <div class="col-lg-6 col-6">
+            Rua Paulo Orozimbo Faria Lima, 1325
+        </div>
+    </div>
+
 </div>
