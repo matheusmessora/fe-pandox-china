@@ -33,7 +33,17 @@ ANGULOSO.CONFIG = function () {
                             contentType:"application/json; charset=utf-8",
                             dataType:"json",
                             success: function(result){
-                                $("#anguloso").html(angular.toJson(result, true) + "<br />");
+                                var div = "<p>";
+                                var element;
+                                for (var i = 0; i < result.length; i++) {
+                                    element = result[i];
+                                    div += element;
+                                    div += "<br />"
+                                }
+
+
+                                div += "</p>";
+//                                $("#anguloso").append(div);
 
                             }
                         })
@@ -52,17 +62,29 @@ ANGULOSO.CONFIG = function () {
                     var path = response.config.url;
                     if(path.indexOf(".html") == -1) {
                         var data = response.data;
-                        console.log("[anguloso][response] url:" + path, data);
-                        console.log("[anguloso][response] url:" + path, response);
+//                        console.log("[anguloso][response] url:" + path, data);
+                        console.log("[anguloso][response] url:" + path, response.data);
 
                         $.ajax({
                             url:"anguloso/teste",
                             type:"POST",
-                            data: JSON.stringify({path: path, responseDate: new Date(), httpStatus: response.status}),
+                            data: JSON.stringify({path: path, responseDate: new Date(), httpStatus: response.status, json: response.data.toString()}),
                             contentType:"application/json; charset=utf-8",
                             dataType:"json",
                             success: function(result){
-                                $("#anguloso").html(angular.toJson(result, true) + "<br />");
+                                var div = "<p>";
+                                var element;
+                                for (var i = 0; i < result.length; i++) {
+                                    element = result[i];
+                                    div += angular.toJson(element, true);
+                                    div += "<br />"
+                                }
+
+
+                                div += "</p>";
+                                console.log("[anguloso][div]", result);
+                                $("#anguloso").append(div);
+
 
                             }
                         })
@@ -94,8 +116,7 @@ ANGULOSO.WATCHER = function(){
 
     var watch = function($scope){
         console.log("[anguloso][watcher] ", $scope);
-//        $("#watchers").html("ABC" + $scope.toString()  + "<br />");
-        $("#watchers").append("ABC<br />");
+//        $("#watchers").append("ABC<br />");
         console.log("[anguloso][watcher] MMMMM ", $scope);
     };
 
