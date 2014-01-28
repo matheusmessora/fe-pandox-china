@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-function IndexCtrl($scope, $http, $routeParams) {
+function IndexCtrl($scope, $http, $routeParams, auguloso) {
     PANDOX.UI.highligthHeader('menuHome');
     $http.get('/api/page').success(function(data) {
         $scope.pages = data;

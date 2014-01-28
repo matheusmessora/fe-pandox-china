@@ -9,6 +9,8 @@ app.run(function($rootScope, $templateCache) {
     });
 });
 
+app.config(anguloso);
+
 app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.
             when('/', {templateUrl: '/app/partials/index.html',   controller: IndexCtrl}).
