@@ -9,7 +9,8 @@ app.run(function($rootScope, $templateCache) {
     });
 });
 
-app.config(anguloso);
+ANGULOSO.CONFIG.init();
+app.config(ANGULOSO.CONFIG.anguloso);
 
 app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.

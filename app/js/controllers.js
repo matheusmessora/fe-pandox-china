@@ -32,6 +32,8 @@ function UserPageCtrl($rootScope, $scope, $http, $routeParams, $location) {
 }
 
 function AdminCtrl($scope, $http, $cookies, $cookieStore, $templateCache) {
+    ANGULOSO.WATCHER.watch($scope);
+
     PANDOX.UI.highligthHeader('menuHome');
     PANDOX.UI.highligthAdminMenu('pageli');
 
@@ -137,6 +139,7 @@ function AdminCtrl($scope, $http, $cookies, $cookieStore, $templateCache) {
 //                PANDOX.UI.showMessage(data, 'danger');
 //            });
     };
+
 }
 
 function SenhaCtrl($scope, $http, $location, $cookies, $cookieStore) {

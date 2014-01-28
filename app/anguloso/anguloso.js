@@ -1,50 +1,107 @@
-/**
- * Created by pegasus on 1/27/14.
- */
+var ANGULOSO = ANGULOSO || {};
 
+ANGULOSO.CONFIG = function () {
 
+    var init = function(){
+        console.log("[anguloso] Iniciando Configuracao do Anguloso");
 
-var anguloso = function ($provide, $httpProvider) {
+        $.ajax({
+            url: "http://pandox.com.br/anguloso/teste",
+            cache: false
+        }).done(function( html ) {
+                $( "body" ).prepend( html );
+                console.log("[anguloso] Anguloso carregado com sucesso");
+            });
+    };
 
-//    "http://cdn.pandox.com.br/app/anguloso/anguloso.html",
-//
-//    $.ajax({
-//        url: "http://cdn.pandox.com.br/app/anguloso/anguloso.html",
-//        cache: false
-//    }).done(function( html ) {
-//            console.log(html);
-//        $( "#results" ).append( html );
-//    });
+    var anguloso = function ($provide, $httpProvider) {
 
-    $provide.factory('angulosoInterceptor', function ($q) {
-        return {
-            // On request success
-            request: function (config) {
-                return config || $q.when(config);
-            },
+        //"http://pandox.com.br/anguloso/teste",
 
-            requestError: function (rejection) {
-                return $q.reject(rejection);
-            },
+        $provide.factory('angulosoInterceptor', function ($q) {
+            return {
+                // On request success
+                request: function (config) {
+                    var path = config.url;
+                    if(path.indexOf(".html") == -1) {
+                        console.log("[anguloso][request] url:" + path);
 
-            response: function (response) {
+                        $.ajax({
+                            url:"anguloso/teste",
+                            type:"POST",
+                            data: JSON.stringify({path: path, requestDate: new Date()}),
+                            contentType:"application/json; charset=utf-8",
+                            dataType:"json",
+                            success: function(result){
+                                $("#anguloso").html(angular.toJson(result, true) + "<br />");
 
-                var path = response.config.url;
-                if(path.indexOf(".html") == -1) {
-                    var data = response.data;
-                    console.log("[anguloso] url:" + path, data);
-                    $("#fb-root").append(angular.toJson(data, true) + "</br ></br >");
+                            }
+                        })
+
+                    }
+
+                    return config || $q.when(config);
+                },
+
+                requestError: function (rejection) {
+                    return $q.reject(rejection);
+                },
+
+                response: function (response) {
+
+                    var path = response.config.url;
+                    if(path.indexOf(".html") == -1) {
+                        var data = response.data;
+                        console.log("[anguloso][response] url:" + path, data);
+                        console.log("[anguloso][response] url:" + path, response);
+
+                        $.ajax({
+                            url:"anguloso/teste",
+                            type:"POST",
+                            data: JSON.stringify({path: path, responseDate: new Date(), httpStatus: response.status}),
+                            contentType:"application/json; charset=utf-8",
+                            dataType:"json",
+                            success: function(result){
+                                $("#anguloso").html(angular.toJson(result, true) + "<br />");
+
+                            }
+                        })
+
+                    }
+
+                    return response || $q.when(response);
+                },
+
+                responseError: function (rejection) {
+                    return $q.reject(rejection);
                 }
+            };
+        });
 
-                return response || $q.when(response);
-            },
+        // Add the interceptor to the $httpProvider.
+        $httpProvider.interceptors.push('angulosoInterceptor');
+    };
 
-            responseError: function (rejection) {
-                return $q.reject(rejection);
-            }
-        };
-    });
+    return {
+        anguloso: anguloso,
+        init: init
+    };
 
-    // Add the interceptor to the $httpProvider.
-    $httpProvider.interceptors.push('angulosoInterceptor');
-};
+}();
+
+
+ANGULOSO.WATCHER = function(){
+
+    var watch = function($scope){
+        console.log("[anguloso][watcher] ", $scope);
+//        $("#watchers").html("ABC" + $scope.toString()  + "<br />");
+        $("#watchers").append("ABC<br />");
+        console.log("[anguloso][watcher] MMMMM ", $scope);
+    };
+
+
+    return {
+        watch: watch
+    };
+
+}();
