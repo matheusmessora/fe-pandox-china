@@ -34,16 +34,13 @@ ANGULOSO.CONFIG = function () {
                             dataType:"json",
                             success: function(result){
                                 var div = "<p>";
-                                var element;
-                                for (var i = 0; i < result.length; i++) {
-                                    element = result[i];
-                                    div += element;
-                                    div += "<br />"
-                                }
+                                console.log(result.id + " | " + result.path);
+                                div += result.id + " | " + result.path;
+                                div += "<br />";
 
 
                                 div += "</p>";
-//                                $("#anguloso").append(div);
+                                $("#anguloso").append(div);
 
                             }
                         })
